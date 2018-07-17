@@ -8,8 +8,22 @@
     <script rel="text/javascript" src="functions.js"></script>
   </head>
   <body>
-    <button id="deck">Sekoita</button>
-    <div id="table"></div>
-    <div id="result"></div>
+    <main>
+      <div id="table" class="table">
+        <button id="deck">Sekoita</button>
+        <div id="deal">
+          <span class="card"></span>
+          <span class="card"></span>
+          <span class="card"></span>
+          <span class="card"></span>
+          <span class="card"></span>
+        </div>
+      </div>
+
+      <!-- Template for cards -->
+      <template>
+        <span class="card"></span>
+      </template>
+    </main>
   </body>
 </html>

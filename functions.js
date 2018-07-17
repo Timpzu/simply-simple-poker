@@ -1,32 +1,38 @@
-window.onload = function () {
+window.onload = () => {
   let shuffle = [];
-  let table = document.getElementById('table');
-  let deck = document.getElementById('deck');
+  const deck = document.getElementById('deck');
+  const deal = document.getElementById('deal');
+  const cardTemplate = document.getElementsByTagName('template')[0];
+  const cardItem = cardTemplate.content.querySelector('span');
 
   deck.onclick = () => {
     shuffle.length = 0;
+    deal.innerHTML = "";
+    let a, i;
     for (let i = 0; i < 5; i++) {
       let card = {
-        suit : Math.floor((Math.random() * 4) + 1),
+        suit : String.fromCharCode(Math.floor(Math.random() * 4) + 97),
         num : Math.floor((Math.random() * 13) + 1)
       }
+      a = document.importNode(cardItem, true);
+      a.style.backgroundImage = "url('img/cards/" + card.suit + "/" + card.num + ".png')";
+      deal.appendChild(a);
       shuffle.push(card);
     }
-    table.innerHTML = JSON.stringify(shuffle);
     check();
   }
 
-  function check() {
-    let flush, straight, hand = "";
+  const check = () => {
+    let flush, straight, hand;
     let suits = shuffle.map(x => x.suit);
     let nums = shuffle.map(x => x.num).sort((a,b) => {return a - b});
 
-    function checkFlush(value, i, array) {
+    const checkFlush = (value, i, array) => {
       return array[0] === value;
     }
     flush = suits.every(checkFlush);
 
-    function checkStraight(value, i, array) {
+    const checkStraight = (value, i, array) => {
       if (array[i] == array[i + 1] - 1 || array[i + 1] == null) {
         return true;
       } else {
