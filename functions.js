@@ -26,7 +26,12 @@ window.onload = () => {
       a = document.importNode(cardItem, true);
       deal.appendChild(a);
       setTimeout(function timer() {
-        deal.childNodes[i].style.backgroundImage = "url('img/cards/" + shuffle[i].suit + "/" + shuffle[i].num + ".png')";
+        let deg = Math.random();
+        deg *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
+        Object.assign(deal.childNodes[i].style,{
+          backgroundImage : "url('img/cards/" + shuffle[i].suit + "/" + shuffle[i].num + ".png')",
+          transform : "rotate(" + deg + "deg)"
+        });
       }, i * 125);
     }
   }
@@ -50,13 +55,9 @@ window.onload = () => {
     }
     straight = nums.every(checkStraight);
 
-    if (flush === true && straight === false) {
-      hand = "flush";
-    } else if (flush === false && straight === true) {
-      hand = "straight";
-    } else if (flush === true && straight === true) {
-      hand = "straight flush";
-    }
+    flush === true && straight === false ? hand = "flush" :
+    flush === false && straight === true ? hand = "straight" :
+    flush === true && straight === true ? hand = "straight flush" : hand = "none";
 
     switch (hand) {
       case "flush":
