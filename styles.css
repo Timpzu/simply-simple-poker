@@ -6,17 +6,30 @@ h1, h2, h3, h4, h5, p, a, button {
   font-family: 'Limelight', cursive;
   color: #fff;
 }
-button {
-  padding: 16px;
-  margin-bottom: 20px;
-  background: #477148;
-  border: none;
-  border-radius: 10px;
-  font-size: 12px;
+.deckBtn {
+  width: 180px;
+  height: 275px;
+  position: absolute;
+  top: -125px;
+  transform: rotate(5deg);
+  font-size: 32px;
+  -webkit-text-stroke: 1.5px #06116B;
+  background: url(img/Bicyclebackside.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-box-shadow: 4px 4px 2px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: 4px 4px 2px 0px rgba(0,0,0,0.6);
+  box-shadow: 4px 4px 2px 0px rgba(0,0,0,0.6);
+}
+.deckBtn:hover {
+  transform: scale(1.025,1.025) rotate(4deg);
+  cursor: pointer;
 }
 .table {
   width: 100vw;
   height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,22 +38,17 @@ button {
   background-size: 25%;
 }
 .card {
-  height: 214px;
-  width: 148px;
-  margin: 15px;
+  width: 174px;
+  height: 250px;
+  margin: 8px;
   display: inline-block;
-  position: relative;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-.card::before {
-  position: absolute;
-  content: "";
-  top: -10px;
-  bottom: -10px;
-  left: -10px;
-  right: -10px;
-  border: 5px solid #C5B358;
-  border-radius: 5px;
+
+.deal {
+  padding: 32px 24px;
+  border: 7px solid rgba(71, 113, 72, 0.45);
+  border-radius: 40px;
 }
