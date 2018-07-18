@@ -27,7 +27,7 @@ window.onload = () => {
       deal.appendChild(a);
       setTimeout(function timer() {
         deal.childNodes[i].style.backgroundImage = "url('img/cards/" + shuffle[i].suit + "/" + shuffle[i].num + ".png')";
-      }, i * 200);
+      }, i * 125);
     }
   }
 
