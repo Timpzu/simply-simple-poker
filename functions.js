@@ -2,24 +2,33 @@ window.onload = () => {
   let shuffle = [];
   const deck = document.getElementById('deck');
   const deal = document.getElementById('deal');
-  const cardTemplate = document.getElementsByTagName('template')[0];
-  const cardItem = cardTemplate.content.querySelector('span');
+  const result = document.getElementById('result');
 
   deck.onclick = () => {
     shuffle.length = 0;
     deal.innerHTML = "";
-    let a, i;
     for (let i = 0; i < 5; i++) {
       let card = {
         suit : String.fromCharCode(Math.floor(Math.random() * 4) + 97),
         num : Math.floor((Math.random() * 13) + 1)
       }
-      a = document.importNode(cardItem, true);
-      a.style.backgroundImage = "url('img/cards/" + card.suit + "/" + card.num + ".png')";
-      deal.appendChild(a);
       shuffle.push(card);
     }
+    showCards();
     check();
+  }
+
+  const showCards = () => {
+    const cardTemplate = document.getElementsByTagName('template')[0];
+    const cardItem = cardTemplate.content.querySelector('span');
+    let a;
+    for (let i = 0; i < shuffle.length; i++) {
+      a = document.importNode(cardItem, true);
+      deal.appendChild(a);
+      setTimeout(function timer() {
+        deal.childNodes[i].style.backgroundImage = "url('img/cards/" + shuffle[i].suit + "/" + shuffle[i].num + ".png')";
+      }, i * 200);
+    }
   }
 
   const check = () => {
@@ -51,16 +60,16 @@ window.onload = () => {
 
     switch (hand) {
       case "flush":
-        console.log("It's a flush!");
+        result.innerHTML = "It's a flush!";
         break;
       case "straight":
-        console.log("It's a straight!");
+        result.innerHTML = "It's a straight!";
         break;
       case "straight flush":
-        console.log("It's a straight flush!");
+        result.innerHTML = "It's a straight flush!";
         break;
       default:
-        console.log('You have nothing.');
+        result.innerHTML = "You've got nothing.";
     }
   }
 };
