@@ -3,8 +3,12 @@ body {
   padding: 0;
 }
 h1, h2, h3, h4, h5, p, a, button {
-  font-family: 'Limelight', cursive;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
+}
+p {
+  font-size: 18px;
+  text-transform: uppercase;
 }
 .deckBtn {
   width: 180px;
@@ -12,6 +16,7 @@ h1, h2, h3, h4, h5, p, a, button {
   position: absolute;
   top: -125px;
   transform: rotate(5deg);
+  font-family: 'Limelight', cursive;
   font-size: 32px;
   -webkit-text-stroke: 1.5px #06116B;
   background: url(img/Bicyclebackside.jpg);
@@ -46,9 +51,12 @@ h1, h2, h3, h4, h5, p, a, button {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .deal {
   padding: 32px 24px;
   border: 7px solid rgba(71, 113, 72, 0.45);
   border-radius: 40px;
+}
+.infoPane {
+  position: absolute;
+  bottom: 32px;
 }
